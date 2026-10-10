@@ -1,6 +1,6 @@
 'use client'
 
-import { useEffect, useRef, useState, type ReactNode } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { CASE_IDS } from '@/data/caseStudies'
 import { PROJECTS } from '@/data/projects'
 import { SITE } from '@/lib/site'
@@ -19,10 +19,10 @@ import { Shelf } from './Shelf'
 type Scene = 'intro' | 'build' | 'reveal' | 'all'
 type Tab = FlowerId | 'kind' | 'shelf'
 
-export function FlowerApp({ strip }: { strip: ReactNode }) {
+export function FlowerApp() {
   return (
     <SheetsProvider>
-      <App strip={strip} />
+      <App />
     </SheetsProvider>
   )
 }
@@ -66,7 +66,7 @@ function Petals() {
   )
 }
 
-function App({ strip }: { strip: ReactNode }) {
+function App() {
   const reduced = useReducedMotion()
   const [scene, setScene] = useState<Scene>('intro')
   const [step, setStep] = useState(0)
@@ -515,7 +515,6 @@ function App({ strip }: { strip: ReactNode }) {
                 ))}
                 <h2>Kind words</h2>
                 <Quotes />
-                {strip}
                 <h2>On my greenhouse shelf</h2>
                 <div className="glass allglass">
                   <Shelf />
