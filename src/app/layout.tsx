@@ -11,6 +11,7 @@ export const metadata: Metadata = {
   metadataBase,
   title,
   description,
+  icons: { icon: '/icon.png', apple: '/apple-icon.png' },
   openGraph: {
     title,
     description,
